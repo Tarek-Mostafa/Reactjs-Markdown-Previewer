@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Preview from "./Preview";
+import Editor from "./Editor";
+
 import marked from "marked";
 
 export default function App() {
@@ -53,19 +56,19 @@ And here. | Okay. | I think we get it.
 
    const [ text, setText ] = useState(initialText);
 
-   marked.setOptions({
-      breaks: true,
-   });
-
-   function mark(e) {
-      setText(e.target.value);
+   function changeEditorText(value) {
+      setText(value);
    }
+
+   marked.setOptions({
+      breaks: true
+   });
 
    return (
         <div className="markdownContainer">
            <h1 className="title">Markdown Previewer (Reactjs)</h1>
-           <textarea id="editor" onChange={ mark } value={ text }></textarea>
-            <div id="preview" dangerouslySetInnerHTML={{ __html: marked(text) }} ></div>
+           <Editor text={ text } changeEditorText={ changeEditorText } />
+           <Preview text={ marked(text) } />
         </div>
    )
 }
