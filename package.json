@@ -15,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "depoly": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,5 +28,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://github.com/Tarek-Mostafa/Reactjs-Markdown-Previewer"
+  "homepage": "https://tarek-mostafa.github.io/Reactjs-Markdown-Previewer/."
 }
